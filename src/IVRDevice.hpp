@@ -71,6 +71,11 @@ public:
     virtual void PositionMessage(messages::Position& position) = 0;
 
     /**
+     * Updates controller input from a received message.
+     */
+    virtual void ControllerInputMessage(messages::ControllerInput& input) = 0;
+
+    /**
      * Updates device status from a received message.
      */
     virtual void StatusMessage(messages::TrackerStatus& status) = 0;

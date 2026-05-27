@@ -86,6 +86,25 @@ public:
      */
     virtual std::optional<UniverseTranslation> GetCurrentUniverse() = 0;
 
+    /**
+     * Gets the current pose from an external controller (e.g. Virtual Desktop /
+     * Steam Link on Quest) for the given hand, if one is connected and tracked.
+     */
+    virtual std::optional<vr::DriverPose_t> GetExternalPoseForHand(bool left_hand) = 0;
+
+    /** Pose lerp speed (0-1) for smoothing. From driver config file. */
+    virtual float GetPoseLerpSpeed() = 0;
+    /** Slower lerp speed used when swapping sources to smooth the transition. */
+    virtual float GetPoseLerpSpeedOnSwap() = 0;
+
+    /** Priority for the controller hand role. */
+    virtual int GetControllerPriority() = 0;
+    /** Whether to avoid overwriting input when no data is received. */
+    virtual bool GetInputPassthrough() = 0;
+
+    /** Gets external controller buttons for the hand. */
+    virtual uint64_t GetExternalButtonsForHand(bool left_hand) = 0;
+
     virtual inline const char* const* GetInterfaceVersions() override {
         return vr::k_InterfaceVersions;
     };

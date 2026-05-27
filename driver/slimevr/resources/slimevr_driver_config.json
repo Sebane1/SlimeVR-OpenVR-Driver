@@ -1,0 +1,4 @@
+{
+  "external_hand_max_radius_m": 1.7,
+  "pose_lerp_speed": 0.8
+}
